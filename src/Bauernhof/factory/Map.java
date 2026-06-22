@@ -11,7 +11,7 @@ public class Map
 
 	char[] xValues = {'A','B','C','D','E'};
 	
-	
+	// Konstruktor fehlt, da sollte dieses new Items.. rein, das willst du ja nur 1mal aufrufen
 	Items[][][] grid = new Items[5][5][3];
 	
 	
@@ -37,6 +37,7 @@ public class Map
 		{
 			for(int j= 0; j <5;j++) 
 			{
+				// dies reicht, wenn du das einmal außerhalb der For-Schleife aufrufst, du brauchst nicht mehre Instanzen davon
 				ProducerIF agriAssociation = Factory.create(2);
 				
 				grid[i][j][0] = agriAssociation.produce();
@@ -81,6 +82,8 @@ public class Map
 	public void printGrid(Items[][][] fields) {
 	    for(int i = 0; i < fields.length; i++) {
 	        for(int j = 0; j < fields[i].length; j++) {
+	        	
+	        	// diesen Batzen hier würde ich jeweils als Methode auslagern. Wieso macht .getPos() das z.B. nicht direkt, beide Positionen holen und sie als string zurückgeben?
 	            String position = String.valueOf(fields[i][j][0].getPos().getX())
 	                            + fields[i][j][0].getPos().getY();
 	            String property = fields[i][j][0].getClass().getSimpleName();

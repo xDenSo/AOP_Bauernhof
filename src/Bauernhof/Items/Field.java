@@ -8,6 +8,7 @@ public class Field extends Property implements BuildableIF
 
 	}
 
+	// Override keyword nicht nötig
 	@Override
 	public void placeBuildings(Items[][][] grid, Buildings b) {
 		int x = getPos().getX()- 'A';
