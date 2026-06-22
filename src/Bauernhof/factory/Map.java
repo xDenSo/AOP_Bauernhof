@@ -53,6 +53,8 @@ public class Map
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
 				Buildings building = (Buildings) Factory.create(0).produce();
+				
+				// wenn du hier die if schleife weglassen willst, dann würde ich bei Meadow einfach auch die .placeBuildings() Methode impementieren, nur dass sie halt nix tut. dann kannst du alle durchiterieren und bei Meadow bauts halt nix.
 				if(grid[i][j][0] instanceof BuildableIF) {
 					BuildableIF object =(BuildableIF) grid[i][j][0];
 					object.placeBuildings(grid, building);
